@@ -17,13 +17,13 @@ class AppFixtures extends Fixture
             $title = $faker->sentence();
             $coverImage = $faker->image(1000, 350);
             $introduction = $faker->paragraph(2);
-            $content = '<p>'. join('</p><p>', $faker->paragraphs(5)).'</p>';
+            $description = '<p>'. join('</p><p>', $faker->paragraphs(5)).'</p>';
 
-            $ad = new AdOld() ;
+            $ad = new Ad() ;
             $ad->setTitle($title)
                 ->setCoverImage($coverImage)
                 ->setIntroduction($introduction)
-                ->setContent($content)
+                ->setDescription($description)
                 ->setPrice(mt_rand(40, 200))
                 ->setRooms(mt_rand(1, 5));
             for($j = 1; $j <= mt_rand(2, 5); $j++ ){
