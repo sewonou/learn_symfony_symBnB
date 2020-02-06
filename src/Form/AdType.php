@@ -13,25 +13,9 @@ use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AdType extends AbstractType
+class AdType extends ApplicationType
 {
-    /**
-     * Permet d'avoir une configuration de base'
-     *
-     * @param $label string
-     * @param $placeholder string
-     * @param  $options array
-     * @return array
-     */
-    private function getConfiguration($label, $placeholder, $options = [])
-    {
-        return array_merge([
-            'label' => $label,
-            'attr' => [
-                'placeholder' => $placeholder,
-            ]
-        ], $options);
-    }
+
     
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
