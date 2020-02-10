@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdController extends AbstractController
 {
     /**
-     * @Route("/ads", name="ad_index")
+     * @Route("/ads", name="ads_index")
      */
     public function index(AdRepository $repo)
     {
@@ -133,7 +133,7 @@ class AdController extends AbstractController
             'success',
             "L'annonce <strong> {$ad->getTitle()}</strong> a bien été supprimer"
         );
-        return $this->redirectToRoute('ad_index');
+        return $this->redirectToRoute('ads_index');
     }
 
 
