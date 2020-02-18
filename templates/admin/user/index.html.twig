@@ -1,0 +1,55 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Administration des utilisateurs{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <h1 class="my-5">Gestion des utilisateurs</h1>
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom & Prénoms</th>
+                <th>Introduction</th>
+                <th class="">Nombre d'annonce</th>
+                <th class="">Nombre de réservation</th>
+                <th class="">Nombre de Commentaires</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>
+                        <img src="{{ user.picture }}" alt="Avatar de {{ user.fullName }}" class="avatar avatar-micro
+                        mr-2">
+                        {{ user.fullName }}
+                    </td>
+                    <td>{{ user.introduction | raw }}</td>
+
+                    <td class="">
+                        <span class="badge badge-primary rounded">{{ user.ads | length }} Annonces</span>
+                    </td>
+                    <td class="">
+                        <span class="badge badge-success rounded">{{ user.bookings | length }} Réservations</span>
+                    </td>
+                    <td class="">
+                        <span class="badge badge-success rounded">{{ user.comments | length }} Commentaires</span>
+                    </td>
+                    <td>
+                        <a href="{{ path('admin_users_edit', {'id': user.id}) }}" class="btn btn-primary">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="{{ path('admin_users_delete', {'id': user.id}) }}" class="btn btn-danger">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+{% endblock %}

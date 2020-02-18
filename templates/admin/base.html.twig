@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SymBnB - {% block title %}Welcome!{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+{% include 'admin/partials/header.html.twig' %}
+{% block body %}{% endblock %}
+{% include 'admin/partials/footer.html.twig' %}
+<script src="{{ asset('js/jquery-3.4.1.slim.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/popper.min.js') }}"></script>
+{% block javascripts %}{% endblock %}
+</body>
+</html>

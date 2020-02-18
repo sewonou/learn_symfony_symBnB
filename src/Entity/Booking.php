@@ -35,7 +35,9 @@ class Booking
      * @Assert\Date(message="La date d'arrivée doit être au bon format")
      * @Assert\GreaterThan(
      *     "today",
-     *     message="La date d'arrivée doit être ultérieur à la date d'aujourd'hui ! ")
+     *     message="La date d'arrivée doit être ultérieur à la date d'aujourd'hui ! ",
+     *     groups={"front"}
+     * )
      */
     private $startDate;
 
@@ -66,6 +68,7 @@ class Booking
 
     /**
      * @ORM\PrePersist()
+     * @ORM\PreUpdate()
      *
      */
     public function prePersist()
