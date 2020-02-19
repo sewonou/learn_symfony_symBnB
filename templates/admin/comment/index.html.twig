@@ -19,7 +19,7 @@
             </tr>
             </thead>
             <tbody>
-            {% for comment in comments %}
+            {% for comment in paginator.data %}
                 <tr>
                     <td>{{ comment.id }}</td>
                     <td>{{ comment.createdAt | date('d/m/Y H:i') }}</td>
@@ -50,5 +50,7 @@
             </tbody>
 
         </table>
+
+        {{ paginator.display }}
     </div>
 {% endblock %}
